@@ -17,7 +17,7 @@ function levenshtein (ccName, subscriberName) {
 
 	for (i = 1; i <= subscriberName.length; i++) {
 		for (j = 1; j <= ccName.length; j++) {
-			if (subscriberName.charAt(i - 1) == ccName.charAt(j - 1)) {
+			if (subscriberName.charAt(i - 1) === ccName.charAt(j - 1)) {
 				difference[i][j] = difference[i - 1][j - 1];
 			} else {
 				difference[i][j] = Math.min(difference[i - 1][j - 1] + 1,
