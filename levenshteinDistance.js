@@ -1,7 +1,7 @@
 'use strict';
 
-function levenshtein (ccName, subscriberName) {
-	if (!ccName || !subscriberName) return -1;
+module.exports = function levenshtein (ccName, subscriberName) {
+	if (!ccName || !subscriberName) return 0;
 
 	const difference = [];
 
@@ -31,8 +31,5 @@ function levenshtein (ccName, subscriberName) {
 	const max = Math.max(ccName.length, subscriberName.length);
 	const value = (max - distance) / max;
 
-	return value.toLocaleString('en', { style: 'percent' });
-}
-
-
-console.log(levenshtein(process.argv[2], process.argv[3]));
+	return value * 100;
+};
